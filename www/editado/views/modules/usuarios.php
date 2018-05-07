@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (!$_SSESION["validar"]) {
+	header("location:index.php?action=ingresar");
+	exit();
+}
+
+?>
+
 <h1>USUARIOS</h1>
 
 	<table border="1">
@@ -16,17 +27,18 @@
 		</thead>
 
 		<tbody>
-			
-			<tr>
-				<td>juan</td>
-				<td>1234</td>
-				<td>juan@hotmail.com</td>
-				<td><button>Editar</button></td>
-				<td><button>Borrar</button></td>
-			</tr>
 
+			<?php
+
+			$ingreso = new MvcController();
+			$ingreso->vistaUsuariosController();
+
+			?>
+			
 		</tbody>
 
-
-
 	</table>
+
+	<?php
+
+?>

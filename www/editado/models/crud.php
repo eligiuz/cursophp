@@ -28,4 +28,31 @@ class Datos extends Conexion{
 
     }
 
+    // INGRESO USUARIO
+    // ---------------------------
+
+    public function ingresoUsuarioModel($datosModel, $tabla){
+
+        $stmt = Conexion::conectar()->prepare("SELECT usuario, password FROM $tabla WHERE usuario = :usuario");
+        $stmt-> bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
+        $stmt->execute();
+
+        // fetch: Obtienen una fila de un conjunto de resultados asociados al objeto PDOStatement.
+        return $stmt->fetch();
+
+    }
+
+    // VISTA USUARIO
+    // ---------------------------
+
+    public function vistaUsuariosModel($tabla){
+
+        $stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla");
+        $stmt->execute();
+
+        //fetchAll() Obtiene todas las filas de un conjunto de resultados asociados al objeto PDOStatement.
+        return $stmt->fetchAll();
+
+    }
+
 }
