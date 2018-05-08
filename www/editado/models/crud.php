@@ -26,6 +26,8 @@ class Datos extends Conexion{
             return "error";
         }
 
+        $stmt->close();
+
     }
 
     // INGRESO USUARIO
@@ -40,6 +42,8 @@ class Datos extends Conexion{
         // fetch: Obtienen una fila de un conjunto de resultados asociados al objeto PDOStatement.
         return $stmt->fetch();
 
+        $stmt->close();
+
     }
 
     // VISTA USUARIO
@@ -52,6 +56,8 @@ class Datos extends Conexion{
 
         //fetchAll() Obtiene todas las filas de un conjunto de resultados asociados al objeto PDOStatement.
         return $stmt->fetchAll();
+
+        $stmt->close();
 
     }
 

@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!$_SSESION["validar"]) {
+if (!$_SESSION["validar"]) {
 	header("location:index.php?action=ingresar");
 	exit();
 }
