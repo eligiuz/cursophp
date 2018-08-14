@@ -1,6 +1,6 @@
 <h1>REGISTRO DE USUARIO</h1>
 
-<form method="post">
+<form method="post" action="">
 	
 	<input type="text" placeholder="Usuario" name="usuario" required>
 
@@ -11,10 +11,3 @@
 	<input type="submit" value="Enviar">
 
 </form>
-
-<?php
-
-$registro = MvcController();
-$registro->registroUsuarioController();
-
-?>

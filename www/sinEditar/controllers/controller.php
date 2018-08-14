@@ -33,24 +33,6 @@ class MvcController{
 
 	}
 
-	// Regsitro de usuarios
-
-	public function registroUsuarioControler(){
-
-		if(isset($_POST["usuario"])){
-
-			$datosController = array("usuario"=>$_POST["usuario"],
-					"password"=>$_POST["password"],
-					"email"=>$_POST["email"]);
-
-			$respuesta = Datos::registroUsuarioModel($datosController,"usuarios");
-
-			echo $respuesta;
-
-		}
-		
-	}
-
 }
 
 ?>
