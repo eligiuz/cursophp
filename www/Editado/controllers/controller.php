@@ -33,6 +33,21 @@ class MvcController{
 
 	}
 
+	/*REGISTRO DE USUARIOS
+	-------------------------------*/
+	public function registroUsuarioController(){
+
+		$datosController = array("usuario"=>$_POST["usuario"],
+					   "password"=>$_POST["password"],
+					   "email"=>$_POST["email"]);
+
+		$respuesta = Datos::registroUsuarioModel($datosController,"usuarios");
+
+		echo $respuesta;
+
+	}
+
 }
+
 
 ?>
