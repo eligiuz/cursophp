@@ -37,13 +37,22 @@ class MvcController{
 	-------------------------------*/
 	public function registroUsuarioController(){
 
-		$datosController = array("usuario"=>$_POST["usuario"],
-					   "password"=>$_POST["password"],
-					   "email"=>$_POST["email"]);
+		if(isset($_POST["usuario"])){
 
-		$respuesta = Datos::registroUsuarioModel($datosController,"usuarios");
+			$datosController = array("usuario"=>$_POST["usuario"],
+						   "password"=>$_POST["password"],
+						   "email"=>$_POST["email"]);
 
-		echo $respuesta;
+			$respuesta = Datos::registroUsuarioModel($datosController,"usuarios");
+
+			if ($respuesta == "success") {
+				/*Para evitar el error de header */
+				echo '<script>window.location="index.php?action=ok"</script>';
+			} else {
+				echo '<script>window.location="index.php"</script>';
+			}
+
+		}
 
 	}
 
